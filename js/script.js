@@ -7,20 +7,32 @@ Scrivi anche la posizione "umana"
 
 
 // Dichiarazione array con valori predefiniti;
-var surnameList = ['Bianchi', 'Rossi', 'Duzion', 'Balsano', 'Verdi'];
-// Aquisizione valore da casella di input;
-var surnameUser = document.getElementById('surname').value;
-console.log(surnameList);
+var surnameList = ['Bianchi', 'Rossi', 'Duzioni', 'Balsano', 'Verdi'];
+
+// Aquisizione valore da prompt;
+// NOTA, HO TOLTO LA CASELLA DI INPUT PERCHè MI STAVA DANDO PROBLEMI E NON PRENDEVA SEMPRE IL COGNOME;
+var surnameUser = prompt('Inserisci il tuo cognome');
+
 // Converto il cognome con la prima lettera maiuscola ed il resto minuscolo,
 //  per evitare problemi nell'orbine alfabetico;
-var surnameUserFirstLetter = surnameUser.charAt(0).toUpperCase();
-var surnameUserOtherLetter = surnameUser.substring(1).toLowerCase();
-var surnameUserConverted = surnameUserFirstLetter + surnameUserOtherLetter;
-console.log(surnameUserConverted);
+var surnameUser = surnameUser.charAt(0).toUpperCase() + surnameUser.substring(1).toLowerCase();
 
-// Push valore da casella di input all'interno dell'array;
-surnameList.push(surnameUserConverted);
-console.log(surnameList);
+// Push valore da casella di input all'interno dell'array ed sistemo tutto in ordine alfabetico;
+surnameList.push(surnameUser);
+surnameList.sort()
 
-// Stampo la lista ordinata in ordine alfabetico con sort() ed aggiungo join() per avere la virgola ed uno spazio;
-document.getElementById('list').innerHTML = surnameList.sort().join(', ') + '.';
+// button che fa vedere la lista dei cognomi, con un while che si fermera quando finira la lista;
+var stamp = document.getElementById('print');
+stamp.addEventListener('click', function() {
+
+    var i = 0;
+    while (i < surnameList.length) {
+        document.getElementById('list').innerHTML = surnameList.join(', ');
+        i++;
+    }
+
+    // Stampo la posizione umana in cui si trova l'utente;
+    var userPosition = surnameList.indexOf(surnameUser) +1;
+    document.getElementById('position').innerHTML = 'Sei in posizione numero: ' + userPosition;
+
+});
