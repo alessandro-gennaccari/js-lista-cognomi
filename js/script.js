@@ -22,8 +22,5 @@ console.log(surnameUserConverted);
 surnameList.push(surnameUserConverted);
 console.log(surnameList);
 
-// Stampo la lista ordinata in ordine alfabetico
-
-
-
-
+// Stampo la lista ordinata in ordine alfabetico con sort() ed aggiungo join() per avere la virgola ed uno spazio;
+document.getElementById('list').innerHTML = surnameList.sort().join(', ') + '.';
