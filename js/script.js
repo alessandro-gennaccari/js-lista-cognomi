@@ -34,4 +34,5 @@ stamp.addEventListener('click', function() {
     var userPosition = surnameList.indexOf(surnameUser) +1;
     document.getElementById('position').innerHTML = 'Sei in posizione numero: ' + userPosition;
 
+    document.getElementById('surname').value = '';
 });
