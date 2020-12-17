@@ -11,9 +11,19 @@ var surnameList = ['Bianchi', 'Rossi', 'Duzion', 'Balsano', 'Verdi'];
 // Aquisizione valore da casella di input;
 var surnameUser = document.getElementById('surname').value;
 console.log(surnameList);
+// Converto il cognome con la prima lettera maiuscola ed il resto minuscolo,
+//  per evitare problemi nell'orbine alfabetico;
+var surnameUserFirstLetter = surnameUser.charAt(0).toUpperCase();
+var surnameUserOtherLetter = surnameUser.substring(1).toLowerCase();
+var surnameUserConverted = surnameUserFirstLetter + surnameUserOtherLetter;
+console.log(surnameUserConverted);
+
 // Push valore da casella di input all'interno dell'array;
-surnameList.push(surnameUser);
+surnameList.push(surnameUserConverted);
 console.log(surnameList);
+
+// Stampo la lista ordinata in ordine alfabetico
+
 
 
 
